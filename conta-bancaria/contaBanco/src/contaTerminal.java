@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class App {
+public class contaTerminal {
     public static void main(String[] args) {
         System.out.println("Bem-vindo ao banco DIO! Precisaremos alguns dados para confirmar a abertura de sua conta.");
         Scanner scanner= new Scanner(System.in);
