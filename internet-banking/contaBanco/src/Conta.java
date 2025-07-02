@@ -1,18 +1,9 @@
-import java.math.BigDecimal;
-import java.text.NumberFormat;
 import java.util.Scanner;
 
-public class Conta {
+public class Conta extends Moeda{
     private double saldo;
     private double chequeEspecial;
     private double saldoCheque;
-
-    public String formataMoeda(double valor){
-        NumberFormat formata=NumberFormat.getCurrencyInstance();
-        BigDecimal bigDecimal=new BigDecimal(valor);
-        String valorConvertido=formata.format(bigDecimal);
-        return valorConvertido;
-    }
 
     public Conta(double saldo){
         this.saldo=saldo;
