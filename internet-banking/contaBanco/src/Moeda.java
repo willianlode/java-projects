@@ -7,8 +7,7 @@ public class Moeda {
     public Moeda(){
     }
     public Moeda(String language, String country){
-        this.language=language;
-        this.country=country;
+        setLocal(language, country);
     }
     public String formataMoeda(double valor){
         NumberFormat formata=NumberFormat.getCurrencyInstance(Locale.of(language, country));
