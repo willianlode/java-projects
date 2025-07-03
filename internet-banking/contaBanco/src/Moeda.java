@@ -2,20 +2,26 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class Moeda {
-    private static String language=Locale.getDefault().getLanguage();
-    private static String country=Locale.getDefault().getCountry();
-    public static String formataMoeda(double valor){
+    private String language=Locale.getDefault().getLanguage();
+    private String country=Locale.getDefault().getCountry();
+    public Moeda(){
+    }
+    public Moeda(String language, String country){
+        this.language=language;
+        this.country=country;
+    }
+    public String formataMoeda(double valor){
         NumberFormat formata=NumberFormat.getCurrencyInstance(Locale.of(language, country));
         return formata.format(valor);
     }
-    public static void setLocal(String lang,String countr){
+    public void setLocal(String lang,String countr){
         language=lang.toLowerCase();
         country=countr.toUpperCase();
     }
-    public static String getLocal(){
+    public String getLocal(){
         return country;
     }
-    public static String getLanguage(){
+    public String getLanguage(){
         return language;
     }
 }

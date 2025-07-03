@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Conta extends Moeda{
+public class Conta{
     private double saldo;
     private double chequeEspecial;
     private double saldoCheque;
@@ -17,24 +17,25 @@ public class Conta extends Moeda{
         consultaSaldo();
         consultaCheque();
     }
+    Moeda moeda=new Moeda();
     public void consultaSaldo(){
-        System.out.println("O seu saldo é " + formataMoeda(saldo));
+        System.out.println("O seu saldo é " + moeda.formataMoeda(saldo));
     }
     public void consultaCheque(){
-        System.out.println("Você tem um cheque especial de " + formataMoeda(chequeEspecial));
+        System.out.println("Você tem um cheque especial de " + moeda.formataMoeda(chequeEspecial));
     }
     public void verificaCheque(){
-        System.out.println("Você possui " + formataMoeda(saldoCheque) + " disponíveis de um total de " + formataMoeda(chequeEspecial) + " de cheque especial.");
+        System.out.println("Você possui " + moeda.formataMoeda(saldoCheque) + " disponíveis de um total de " + moeda.formataMoeda(chequeEspecial) + " de cheque especial.");
     }
     public void pagaBoleto(double valorBoleto){
         if(valorBoleto<=saldo){
            saldo=saldo-valorBoleto; 
-           System.out.println("Pagamento realizado! Saldo disponível: " + formataMoeda(saldo));
+           System.out.println("Pagamento realizado! Saldo disponível: " + moeda.formataMoeda(saldo));
         }else{
             System.out.println("Saldo insuficiente! Valor boleto:");
-            System.out.println(""+formataMoeda(valorBoleto));
+            System.out.println(""+moeda.formataMoeda(valorBoleto));
             consultaSaldo();
-            System.out.println("Faltam "+ formataMoeda(valorBoleto-saldo));
+            System.out.println("Faltam "+ moeda.formataMoeda(valorBoleto-saldo));
             verificaCheque();
             System.out.println("Deseja usar o cheque especial? *taxa de 20% aplicável");
             System.out.println("[y/n]?");
@@ -43,9 +44,9 @@ public class Conta extends Moeda{
             if(resposta.toLowerCase().equals("y")){
                 saldoCheque=chequeEspecial-(valorBoleto-saldo);
                 saldo=0;
-                System.out.println("Pagamento realizado! Saldo disponível: " + formataMoeda(saldo));
-                System.out.println("Cheque especial disponível: " + formataMoeda(saldoCheque));
-                System.out.println("Taxa a ser cobrada: " + formataMoeda(0.2*(chequeEspecial-saldoCheque)));
+                System.out.println("Pagamento realizado! Saldo disponível: " + moeda.formataMoeda(saldo));
+                System.out.println("Cheque especial disponível: " + moeda.formataMoeda(saldoCheque));
+                System.out.println("Taxa a ser cobrada: " + moeda.formataMoeda(0.2*(chequeEspecial-saldoCheque)));
             }else if(resposta.toLowerCase().equals("n")){
                 System.out.println("Pagamento não realizado.");
             }else{
@@ -58,12 +59,12 @@ public class Conta extends Moeda{
     public void sacaDinheiro(double valorSaque){
         if(valorSaque<=saldo){
             this.saldo=saldo-valorSaque;
-            System.out.println("Pagamento realizado! Saldo disponível: " + formataMoeda(saldo));
+            System.out.println("Pagamento realizado! Saldo disponível: " + moeda.formataMoeda(saldo));
         }else{
             System.out.println("Saldo insuficiente! Valor saque:");
-            System.out.println(""+formataMoeda(valorSaque));
+            System.out.println(""+moeda.formataMoeda(valorSaque));
             consultaSaldo();
-            System.out.println("Faltam "+ formataMoeda(valorSaque-this.saldo));
+            System.out.println("Faltam "+ moeda.formataMoeda(valorSaque-this.saldo));
             verificaCheque();
             System.out.println("Deseja usar o cheque especial? *taxa de 20% aplicável");
             System.out.println("[y/n]?");
@@ -72,9 +73,9 @@ public class Conta extends Moeda{
             if(resposta.toLowerCase().equals("y")){
                 saldoCheque=chequeEspecial-(valorSaque-saldo);
                 saldo=0;
-                System.out.println("Saque realizado! Saldo disponível: " + formataMoeda(saldo));
-                System.out.println("Cheque especial disponível: " + formataMoeda(saldoCheque));
-                System.out.println("Taxa a ser cobrada: " + formataMoeda(0.2*(chequeEspecial-saldoCheque)));
+                System.out.println("Saque realizado! Saldo disponível: " + moeda.formataMoeda(saldo));
+                System.out.println("Cheque especial disponível: " + moeda.formataMoeda(saldoCheque));
+                System.out.println("Taxa a ser cobrada: " + moeda.formataMoeda(0.2*(chequeEspecial-saldoCheque)));
             }else if(resposta.toLowerCase().equals("n")){
                 System.out.println("Pagamento não realizado.");
             }else{
@@ -90,6 +91,6 @@ public class Conta extends Moeda{
         } else{
             saldo=saldo+valorDeposito;
         }
-        System.out.println(""+ formataMoeda(valorDeposito) +" Depositado com sucesso! Seu saldo é " + formataMoeda(this.saldo));
+        System.out.println(""+ moeda.formataMoeda(valorDeposito) +" Depositado com sucesso! Seu saldo é " + moeda.formataMoeda(this.saldo));
     }
 }
