@@ -48,6 +48,9 @@ public class Conta extends Moeda{
                 System.out.println("Taxa a ser cobrada: " + formataMoeda(0.2*(chequeEspecial-saldoCheque)));
             }else if(resposta.toLowerCase().equals("n")){
                 System.out.println("Pagamento não realizado.");
+            }else{
+                System.out.println("Pagamento não realizado.");
+                System.out.println("Opção inválida...");
             }
             scanner.close();
         }  
@@ -74,6 +77,9 @@ public class Conta extends Moeda{
                 System.out.println("Taxa a ser cobrada: " + formataMoeda(0.2*(chequeEspecial-saldoCheque)));
             }else if(resposta.toLowerCase().equals("n")){
                 System.out.println("Pagamento não realizado.");
+            }else{
+                System.out.println("Pagamento não realizado.");
+                System.out.println("Opção inválida...");
             }
             scanner.close();
         }
