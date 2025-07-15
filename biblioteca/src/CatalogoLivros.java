@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CatalogoLivros {
@@ -8,6 +9,7 @@ public class CatalogoLivros {
     }
     public void adicionarLivro(String titulo, String autor, int ano){
         listaLivros.add(new Livro(titulo,autor,ano));
+        Collections.sort(listaLivros);
     }
     public List <Livro> pesquisarPorAutor(String autor){
         List <Livro> listaResultado=new ArrayList<>();
