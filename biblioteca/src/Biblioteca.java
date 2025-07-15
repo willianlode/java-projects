@@ -9,6 +9,6 @@ public class Biblioteca {
         myLibrary.adicionarLivro("Anjos e demonios", "Dan Brown",2007);
         myLibrary.adicionarLivro("Fortaleza digital", "Dan Brown",2010);
         myLibrary.adicionarLivro("Anjos e demonios", "Pedro Pascal", 2007);
-        myLibrary.pesquisarPorTitulo("Anjos e demonios");
+        System.out.println(myLibrary.pesquisarPorAutor("Dan Brown"));
     }
 }

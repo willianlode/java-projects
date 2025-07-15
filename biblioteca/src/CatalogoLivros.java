@@ -9,39 +9,41 @@ public class CatalogoLivros {
     public void adicionarLivro(String titulo, String autor, int ano){
         listaLivros.add(new Livro(titulo,autor,ano));
     }
-    public void pesquisarPorAutor(String autor){
+    public List <Livro> pesquisarPorAutor(String autor){
         List <Livro> listaResultado=new ArrayList<>();
-        for(Livro livro:listaLivros){
-            if(livro.getAutor().equals(autor)){
-                listaResultado.add(livro);
+        if (!listaLivros.isEmpty()) {
+            for (Livro livro : listaLivros) {
+                if (livro.getAutor().equals(autor)) {
+                    listaResultado.add(livro);
+                }
             }
         }
-        for(Livro livro:listaResultado){
-            System.out.println(livro);
-        }
+        return listaResultado;
     }
      
-    public void pesquisarPorIntervaloAnos(int anoInicial, int anoFinal) {
+    public List <Livro> pesquisarPorIntervaloAnos(int anoInicial, int anoFinal) {
         List<Livro> listaResultado = new ArrayList<>();
-        for (Livro livro : listaLivros) {
-            if (livro.getAnoDePublicacao()<=anoFinal && livro.getAnoDePublicacao()>=anoInicial) {
-                listaResultado.add(livro);
+        if (!listaLivros.isEmpty()) {
+            for (Livro livro : listaLivros) {
+                if (livro.getAnoDePublicacao() <= anoFinal && livro.getAnoDePublicacao() >= anoInicial) {
+                    listaResultado.add(livro);
+                }
             }
         }
-        for (Livro livro : listaResultado) {
-            System.out.println(livro);
-        }
+        return listaResultado;
     }
-    public void pesquisarPorTitulo(String titulo){
-        int i=0;
+    public Livro pesquisarPorTitulo(String titulo){
+
         Livro livroResultado = null;
-        for(Livro livro:listaLivros){
-            if(livro.getTitulo().equals(titulo)){
-                livroResultado=new Livro(livro.getTitulo(), livro.getTitulo(), livro.getAnoDePublicacao());
-                break;
+        if (!listaLivros.isEmpty()) {
+            for (Livro livro : listaLivros) {
+                if (livro.getTitulo().equals(titulo)) {
+                    livroResultado = new Livro(livro.getTitulo(), livro.getTitulo(), livro.getAnoDePublicacao());
+                    break;
+                }
             }
         }
-        System.out.println(livroResultado);
+        return livroResultado;
     }
 
 }
