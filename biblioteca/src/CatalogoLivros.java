@@ -13,7 +13,7 @@ public class CatalogoLivros {
         List <Livro> listaResultado=new ArrayList<>();
         if (!listaLivros.isEmpty()) {
             for (Livro livro : listaLivros) {
-                if (livro.getAutor().equals(autor)) {
+                if (livro.getAutor().equalsIgnoreCase(autor)) {
                     listaResultado.add(livro);
                 }
             }
@@ -37,7 +37,7 @@ public class CatalogoLivros {
         Livro livroResultado = null;
         if (!listaLivros.isEmpty()) {
             for (Livro livro : listaLivros) {
-                if (livro.getTitulo().equals(titulo)) {
+                if (livro.getTitulo().equalsIgnoreCase(titulo)) {
                     livroResultado = new Livro(livro.getTitulo(), livro.getTitulo(), livro.getAnoDePublicacao());
                     break;
                 }
